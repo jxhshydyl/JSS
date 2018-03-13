@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+   <package name="default" extends="struts-default,json-default">
+      <action name="*-*" class="com.jss.teacher.action.{1}Action" method="{2}">
+            <!--  得到班级列表-->
+	        <result name="class">../class/classList.jsp</result>
+	        <!--  得到班级中学生列表-->
+	        <result name="student">../class/studentList.jsp</result>
+	        <!--  根据条件得到班级中学生列表-->
+	        <result name="condition_class">../class/classList.jsp</result>
+	        <!--  导出班级中学生信息  filename导出的表名--> 
+	        <result name="exportExcel" type="stream">
+	                <param name="inputStream">inputStream</param>              
+	                <param name="ContentType">application/vnd.ms-excel;charset=utf-8</param>
+	                <param name="contentDisposition">attachment;filename=${filename}</param>
+	        </result> 
+	        <!--  得到题库列表--> 
+	        <result name="question">../corpus/questionList.jsp</result> 
+	        <!--  根据条件查询题目--> 
+	        <result name="condition_question">../corpus/questionList.jsp</result>
+	        <!--  增加题目重定向到题库列表--> 
+	        <result name="addquestion" type="redirectAction">
+				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
+	        </result>
+	        <!--  查看题目详细信息--> 
+	        <result name="checkquestiondetail">../corpus/checkQuestionDetail.jsp</result> 
+	        <!--  查看修改题目详细信息--> 
+	        <result name="querymodifyquestiondetail">../corpus/modifyQuestion.jsp</result> 
+	        <!--  修改题目详细信息成功之后，重定向到题目列表-->
+	        <result name="modifyquestion" type="redirectAction">
+				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
+	        </result>
+	        <!--  删除题目后，重定向到题目列表-->
+	        <result name="deletequestioin" type="redirectAction">
+				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
+	        </result>
+	        <!--  查看消息-->
+	        <result name="message">../message/message.jsp</result>
+	         <!-- 根据条件查看消息-->
+	        <result name="condition_message">../message/message.jsp</result>
+	         <!--  删除消息后重定向到消息列表-->
+	        <result name="deletemessage" type="redirectAction">
+	        	<param name="actionName">Message-queryAllMessage?isFirst=1</param>
+	        </result>
+	        <!--  查看消息的细节-->
+	        <result name="messagedetail">../message/messageDetail.jsp</result>
+	        <!--  回复消息-->
+	        <result name="addanswer" type="redirectAction">
+	        	<param name="actionName">Message-queryMessageDetail?Ano=${#request.ano}</param>
+	        </result>
+	        <!--  下载批量题目的模板-->
+	        <result name="downloadtemplate" type="stream">
+	                <param name="inputStream">inputStream</param>              
+	                <param name="ContentType">application/vnd.ms-excel;charset=utf-8</param>
+	                <param name="contentDisposition">attachment;filename=${filename}</param>
+	        </result>
+	        <!-- 组卷时通过ajax返回所能使用的题目的数量 -->
+	        <result name="queryquestioncount" type="json">
+		        <param name="root">num</param>
+		    </result>
+		    <!-- 查询所有的作业 -->
+		    <result name="querytask">../task/taskList.jsp</result>
+		    <!-- 删除选定作业，并重新查询 -->
+		    <result name="deletetask" type="redirectAction">
+		    	<param name="actionName">Task-queryAllTask.action</param>
+		    </result>
+		    <!-- 安排作业，并重新查询 -->
+		    <result name="arrangetask" type="redirectAction">
+		    	<param name="actionName">Task-queryAllTask.action</param>
+		    </result>
+		    <!--  查询作业的详细信息-->
+		    <result name="querytaskdetail">../task/paper.jsp</result>
+		    <!--  登录返回信息-->
+		    <result name="login" type="json">
+		        <param name="root">hidden</param>
+		     </result>
+		      <!-- 发布作业成功后重新查询作业信息-->
+		    <result name="issuetask" type="redirectAction">
+		    	<param name="actionName">Task-queryAllTask.action</param>
+		    </result>
+		    <!-- 查询已经安排了的作业信息-->
+		    <result name="queryarrangedtask">../task/checkTask.jsp</result>
+		    <!-- 按条件查询已经安排了的作业信息-->
+		    <result name="queryarrangedtaskbycondition">../task/checkTask.jsp</result> 
+		    <!-- 删除已经安排的作业并重新查询-->
+		    <result name="deletearrangedtask" type="redirectAction">
+		    	<param name="actionName">ArrangedTask-queryArrangedTask.action?isFirst=0</param>
+		    </result>
+		    <!-- 查询已经安排了的作业信息-->
+		    <result name="queryclasstaskdetail">../task/studentSubmitTaskList.jsp</result>
+		    <!-- 通过作业编号和问题id删除作业的问题 -->
+		    <result name="deletetaskquestion" type="redirectAction">
+		    	<param name="actionName">TaskDetail-queryTaskDetail.action?tid=${tid}</param>
+		    </result>
+		    <result name="error">../corpus/error.jsp</result>
+		    <!-- 查询相似的题目 -->
+		    <result name="querysilimarquestion" type="json">
+		    	<param name="root">result</param>
+		    </result>
+		    <!-- 替换类似的题目  -->
+		    <result name="replacesilimarquestion" type="json">
+		    	<param name="root">result</param>
+		    </result>
+		    <!-- 根据课程查询所有作业 -->
+		    <result name="querytaskbycourse" type="json">
+		    	<param name="root">result</param>
+		    </result>
+		    <result name="querysubmittaskdetail">../task/studentTaskDetail.jsp</result>
+		    <result name="savesubmittaskdetail">../task/studentTaskDetail.jsp</result>
+      </action>
+      <action name="add" class="com.jss.teacher.action.UploadActioin" method="bulkAddQuestion">
+           <!-- 批量导入题目 -->
+      		<result name="bulk_add_question" type="redirectAction">
+				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
+	        </result>
+	        <!-- 批量导入题目出现异常，跳转到错误页面 -->
+	        <result name="error">../corpus/error.jsp</result>
+      </action>                       
+   </package>
+   <constant name="struts.multipart.saveDir" value="/tmp"></constant>
+</struts>    

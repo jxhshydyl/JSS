@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Amaze UI Admin index Examples</title>
+<meta name="description" content="这是一个 index 页面">
+<meta name="keywords" content="index">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="icon" type="image/png" href="../assets/i/favicon.png">
+<link rel="apple-touch-icon-precomposed"
+	href="assets/i/app-icon72x72@2x.png">
+<meta name="apple-mobile-web-app-title" content="Amaze UI" />
+<link rel="stylesheet" href="../assets/css/amazeui.min.css" />
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+	<div class="am-cf admin-main">
+		<div class=" admin-content">
+			<div class="daohang" style="positioin:absolute;top:0px;">
+				<ul>
+					<li><a class="am-btn am-btn-default am-radius am-btn-xs"
+						href="4.html" target="rightFrame">首页</a></li>
+				</ul>
+			</div>
+			<div class="admin-biaogelist" style="positioin:absolute;top:30px;">
+				<div class="listbiaoti am-cf">
+					<ul class="am-icon-users">作业安排
+					</ul>
+					<dl class="am-icon-home" style="float: right;">
+						当前位置： 首页 >
+						<a>作业安排</a>
+					</dl>
+					<!--这里打开的是新页面-->
+				</div>
+				<div class="fbneirong">
+					<form class="am-form">
+						<div class="am-form-group am-cf" >
+							<div class="zuo">作业名称：</div>
+							<div class="you" style="width:400px;">
+								<input type="text" class="am-input-sm" id="doc-ipt-email-1"
+									placeholder="请输入标题" required>
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="zuo">所属班级：</div>
+							<div class="you">
+								<select multiple="multiple"
+									data-am-selected="{btnWidth: 400, btnSize: 'sm', btnStyle: 'default' }">
+									<option value="1">14级信息管理与信息系统班</option>
+									<option value="2">15级信息管理与信息系统班</option>
+									<option value="3">16级信息管理与信息系统班</option>
+								</select>
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="zuo">所属课程：</div>
+							<div class="you">
+								<select
+									data-am-selected="{btnWidth: 190, btnSize: 'sm', btnStyle: 'default'}">
+									<option value="b">课程名称</option>
+									<option value="o">java应用开发</option>
+								</select>
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="zuo">所属章节：</div>
+							<div class="you" style="width:400px;">
+								<input type="text" class="am-input-sm" id="doc-ipt-email-1"
+									placeholder="请输入标题" required>
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="zuo">截止时间：</div>
+							<div class="you" style="width:100px;">
+								<input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar"
+									placeholder="" data-am-datepicker="{theme: 'success',}" readonly />
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="zuo">作业附件：</div>
+							<div class="you" style="height: 45px;">
+								<input type="file" id="doc-ipt-file-1">
+								<p class="am-form-help">请选择要上传的文件...</p>
+							</div>
+						</div>
+						<div class="am-form-group am-cf">
+							<div class="you" style="margin-left: 11%;">
+								<button type="submit" class="am-btn am-btn-success am-radius">保存</button>
+								&nbsp;  &nbsp;
+								<button type="submit" class="am-btn am-btn-secondary am-radius">发布</button>
+
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="foods">
+					<ul>版权所有@2015
+					</ul>
+					<dl>
+						<a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/app.js"></script>
+	<script src="../assets/js/amazeui.min.js"></script>
+	<!--<![endif]-->
+</body>
+</html>
