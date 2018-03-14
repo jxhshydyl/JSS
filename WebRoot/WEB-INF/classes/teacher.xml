@@ -23,7 +23,7 @@
 	        <result name="addquestion" type="redirectAction">
 				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
 	        </result>
-	        <!--  查看题目详细信息--> 
+	        <!--  查看题目详细信息-->
 	        <result name="checkquestiondetail">../corpus/checkQuestionDetail.jsp</result> 
 	        <!--  查看修改题目详细信息--> 
 	        <result name="querymodifyquestiondetail">../corpus/modifyQuestion.jsp</result> 
