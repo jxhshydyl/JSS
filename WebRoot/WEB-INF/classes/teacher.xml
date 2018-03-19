@@ -112,7 +112,7 @@
       <action name="add" class="com.jss.teacher.action.UploadActioin" method="bulkAddQuestion">
            <!-- 批量导入题目 -->
       		<result name="bulk_add_question" type="redirectAction">
-				<param name="actionName">Question-queryAllQuestion?isFirst=1</param>
+				<param name="actionName">Question-queryAllQuestion?isFirst=0</param>
 	        </result>
 	        <!-- 批量导入题目出现异常，跳转到错误页面 -->
 	        <result name="error">../corpus/error.jsp</result>

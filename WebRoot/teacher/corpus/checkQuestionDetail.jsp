@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Amaze UI Admin index Examples</title>
+<title>题目详情</title>
 <meta name="description" content="这是一个 index 页面">
 <meta name="keywords" content="index">
 <meta name="viewport"
@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="am-form-group am-cf">
 							<div class="zuo">所属章节：</div>
-							<div class="you">
+							<div class="you" style="width:400px;">
 								<input type="text" class="am-input-sm" id="doc-ipt-email-1" name="qp.Qchapter"
 								readonly="readonly"	placeholder="请输入章节（如：第一章）" required>
 							</div>

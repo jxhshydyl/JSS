@@ -25,39 +25,27 @@
 			<attribute name="owner.project.facets" value="web.struts2"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/ezmorph-1.0.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/geronimo-stax-api_1.0_spec-1.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/jxl.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.17.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/mail.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.2.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/poi-3.7-20101029.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/poi-examples-3.7-20101029.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/poi-ooxml-3.7-20101029.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/poi-ooxml-schemas-3.7-20101029.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/poi-scratchpad-3.7-20101029.jar"/>
-	<classpathentry exported="true" kind="lib" path="WebRoot/WEB-INF/lib/xmlbeans-2.3.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-beanutils-1.8.0.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-collections-3.2.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-fileupload.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-io.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-lang.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/commons-logging-1.1.1.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/ezmorph-1.0.6.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/freemarker.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/json-lib-2.4-jdk15.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/log4j.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/ognl.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/struts2-core.jar"/>
-	<classpathentry kind="lib" path="lib/javax.annotation.jar"/>
-	<classpathentry kind="lib" path="lib/javax.ejb.jar"/>
-	<classpathentry kind="lib" path="lib/javax.jms.jar"/>
-	<classpathentry kind="lib" path="lib/javax.persistence.jar"/>
-	<classpathentry kind="lib" path="lib/javax.resource.jar"/>
-	<classpathentry kind="lib" path="lib/javax.servlet.jar"/>
-	<classpathentry kind="lib" path="lib/javax.servlet.jsp.jar"/>
-	<classpathentry kind="lib" path="lib/javax.servlet.jsp.jstl.jar"/>
-	<classpathentry kind="lib" path="lib/javax.transaction.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/geronimo-stax-api_1.0_spec-1.0.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.annotation.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.jms.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.persistence.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.resource.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.servlet.jsp.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.servlet.jsp.jstl.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/javax.transaction.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.2.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-examples-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-ooxml-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-ooxml-schemas-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-scratchpad-3.7-20101029.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

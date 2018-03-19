@@ -1,8 +1,11 @@
 package com.jss.teacher.dao;
 
+import java.math.BigInteger;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jss.teacher.pojo.CodePojo;
 import com.jss.teacher.pojo.QuestionPojo;
 import com.jss.teacher.pojo.TdetailPojo;
 import com.jss.teacher.util.DBUtil;
@@ -34,14 +37,15 @@ public class TaskdetailDao {
 	 * @param score
 	 * @param Tid
 	 */
-	public List<QuestionPojo> queryTaskDetail(int tid) {
+	public List<Object> queryTaskDetail(int tid) {
 		DBUtil.openConn();
 		try {
-			String sql = "select * from Question where Qid in (select Qid from Tdetail where Tid=?)";
+			String sql = "select * from Question where Qid in (select Qid from Tdetail where Tid=? and type=?)";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
 			DBUtil.pstat.setInt(1, tid);
+			DBUtil.pstat.setInt(2, 0);
 			DBUtil.rs=DBUtil.pstat.executeQuery();
-			List<QuestionPojo> list=new ArrayList<QuestionPojo>();
+			List<Object> list=new ArrayList<Object>();
 			while(DBUtil.rs.next()){
 				QuestionPojo question=new QuestionPojo();
 				question.setQid(DBUtil.rs.getInt("Qid"));
@@ -55,12 +59,50 @@ public class TaskdetailDao {
 				question.setCname(DBUtil.rs.getString("Cname"));
 				list.add(question);
 			}
+			List<CodePojo> queryCode = queryCode(tid);
+			list.addAll(queryCode);
 			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		DBUtil.closeConn();
 		return null;
+	}
+	public List<CodePojo> queryCode(int tid) {
+		String sql = "select * from code where Qid in (select Qid from Tdetail where Tid=? and type=?)";
+		try {
+			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
+			DBUtil.pstat.setInt(1, tid);
+			DBUtil.pstat.setInt(2, 1);
+			DBUtil.rs=DBUtil.pstat.executeQuery();
+			List<CodePojo> list=new ArrayList<CodePojo>();
+			while(DBUtil.rs.next()){
+				CodePojo question=new CodePojo();
+				question.setQid(BigInteger.valueOf(DBUtil.rs.getInt("Qid")));
+				question.setQtype(DBUtil.rs.getString("Qtype"));
+				question.setQchapter(DBUtil.rs.getString("Qchapter"));
+				question.setQdegree(DBUtil.rs.getInt("Qdegree"));
+				question.setQdescribe(DBUtil.rs.getString("Qdescribe"));
+				question.setQname(DBUtil.rs.getString("Qname"));
+				question.setQparagraph(DBUtil.rs.getString("Qparagraph"));
+				question.setInputDescribe(DBUtil.rs.getString("Input_describe"));
+				question.setExampleInput(DBUtil.rs.getString("Example_input"));
+				question.setLimitTime(DBUtil.rs.getFloat("Limit_time"));
+				question.setOutputDescripe(DBUtil.rs.getString("Output_descripe"));
+				question.setExampleOutput(DBUtil.rs.getString("Example_output"));
+				question.setTotalRightCount(DBUtil.rs.getInt("total_right_count"));
+				question.setTotalSubmitCount(DBUtil.rs.getInt("total_submit_count"));
+				question.setLimitMemory((float)DBUtil.rs.getInt("Limit_memory"));
+				question.setCname(DBUtil.rs.getString("Cname"));
+				question.setReferenceAnswer(DBUtil.rs.getString("reference_answer"));
+				list.add(question);
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return list;
 	}
 	/**
 	 * 根据作业编号查询该作业的作业类型，数量和每种类型的总分数

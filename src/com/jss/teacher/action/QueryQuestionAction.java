@@ -46,7 +46,10 @@ public class QueryQuestionAction {
 	public void setCno(String cno) {
 		this.cno = cno;
 	}
-
+	/**
+	 * 查询问题数量
+	 * @return
+	 */
 	public String queryQuestionCount(){
 		qs=new QuestionService();
 		num=String.valueOf(qs.queryQuestionCount(type,cno,chapter));

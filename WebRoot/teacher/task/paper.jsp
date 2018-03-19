@@ -1,8 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -33,45 +32,48 @@
 
 <body>
 	<header class="am-topbar admin-header">
-		<div style="margin-top: 15px;margin: 0 auto;width:300px;height:40px;">
+		<div
+			style="margin-top: 15px; margin: 0 auto; width: 300px; height: 40px;">
 			<b style="font-size: 30px"><s:property
 					value="#request['task'].task_name" /></b>
 		</div>
 	</header>
 	<div class="nav-navicon admin-main admin-sidebar"
-		style="margin-top:-45px;background-color: #f0f0f0">
-		<div style="background-color:#2a3542 ;border-radius:5px;height:35px;">
-			<label style="font-size: 20px;margin:0px 0px 0px 55px ;color: white">页面导航</label>
+		style="margin-top: -45px; background-color: #f0f0f0;position:fixed;width:15%;z-index:2">
+		<div
+			style="background-color: #2a3542; border-radius: 5px; height: 35px;">
+			<label
+				style="font-size: 20px; margin: 0px 0px 0px 55px; color: white">页面导航</label>
 		</div>
 		<div style="background-color: #f0f0f0">
-			<label style="font-size:18px;margin-top: 10px">题目分数</label>
-			<hr style="height:1px;border:none;border-top:1px solid #555555;" />
+			<label style="font-size: 18px; margin-top: 10px">题目分数</label>
+			<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />
 		</div>
 		<div style="background-color: #f0f0f0">
-			<ul style="margin-left: -20px;margin-bottom: 10px">
+			<ul style="margin-left: -20px; margin-bottom: 10px">
 				<s:iterator value="#request['detail']" id="detail">
-					<li style="list-style-type: none;margin-top: 10px"><font
-						style="font-size:15px;"> <s:property value="#detail.type" />&nbsp;&nbsp;&nbsp;
-					</font> <font style="font-size:15px;"> <s:property
+					<li style="list-style-type: none; margin-top: 10px"><font
+						style="font-size: 15px;"> <s:property value="#detail.type" />&nbsp;&nbsp;&nbsp;
+					</font> <font style="font-size: 15px;"> <s:property
 								value="#detail.count" />题&nbsp;&nbsp;&nbsp;
-					</font> <font style="font-size:15px;"> <s:property
+					</font> <font style="font-size: 15px;"> <s:property
 								value="#detail.score" />分
 					</font></li>
 				</s:iterator>
 			</ul>
-			<div style="margin-left: 50%;font-size:18px;display: inline;">
+			<div style="margin-left: 50%; font-size: 18px; display: inline;">
 				<b>共<s:property value="#request['task'].tscore" />分
 				</b>
 			</div>
 		</div>
-		<div style="background-color: #f0f0f0;margin-top: 20px">
-			<label style="font-size:18px;">题目内容</label>
-			<hr style="height:1px;border:none;border-top:1px solid #555555;" />
+		<div style="background-color: #f0f0f0; margin-top: 20px">
+			<label style="font-size: 18px;">题目内容</label>
+			<hr style="height: 1px; border: none; border-top: 1px solid #555555;" />
 		</div>
 		<div style="background-color: #f0f0f0">
-			<li style="list-style-type: none;font-size:15px;color:	#1E90FF;">所属课程：<s:property
+			<li style="list-style-type: none; font-size: 15px; color: #1E90FF;">所属课程：<s:property
 					value="#request['task'].cno" /></li>
-			<li style="list-style-type: none;font-size:15px;color:	#1E90FF;">所属章节：<s:property
+			<li style="list-style-type: none; font-size: 15px; color: #1E90FF;">所属章节：<s:property
 					value="#request['task'].tchapter" /></li>
 		</div>
 	</div>
@@ -79,14 +81,17 @@
 		<div class="admin-biaogelist" style="background-color: white">
 			<div class="fbneirong">
 				<s:iterator value="#request['question']" id="question" status="no">
-					<div name="replaceQuestionDiv" id="replaceQuestion<s:property value="#no.getCount()"/>">
-						<div class="am-panel am-panel-default" style="max-width:800px;margin-left: 100px">
+					<div name="replaceQuestionDiv"
+						id="replaceQuestion<s:property value="#no.getCount()"/>">
+						<div class="am-panel am-panel-default"
+							style="margin-left: 10%;margin-right: 10%">
 							<div id="Question<s:property value="#no.getCount()"/>">
 								<div class="am-panel-hd">
-									<b style="font-size: 18px">
-										<s:property value="#no.getCount()" />.
-									</b>
-									(<s:property value="#question.Qtype" />)
+									<b style="font-size: 18px"> <s:property
+											value="#no.getCount()" />.
+									</b> (
+									<s:property value="#question.Qtype" />
+									)
 									<s:property value="#question.Qcontent" />
 								</div>
 								<div class="am-panel-bd">
@@ -111,7 +116,8 @@
 									</s:elseif>
 								</div>
 							</div>
-							<div style="display:block;margin-left:80%;margin-bottom: 10px">
+							<div
+								style="display: block; margin-left: 80%; margin-bottom: 10px">
 								<button type="button" class="am-btn am-btn-default am-round"
 									data-am-modal="{target: '#my-popup'}"
 									style="border: 1px solid #555555"
@@ -136,23 +142,20 @@
 			</div>
 		</div>
 	</div>
-	</div>
 
-	<div class="am-popup" id="my-popup" style="width:45%;">
+	<div class="am-popup" id="my-popup" style="width: 45%;">
 		<div class="am-popup-inner">
 			<div class="am-popup-hd">
 				<h4 class="am-popup-title">换一题</h4>
 				<span data-am-modal-close class="am-close">&times;</span>
-				<div style="background-color: #f0f0f0;height:50px;" id="tihuan">
-					<label style="margin:10px 10px">我们为您筛选了和当前题目类型一样的几道题：</label>
+				<div style="background-color: #f0f0f0; height: 50px;" id="tihuan">
+					<label style="margin: 10px 10px">我们为您筛选了和当前题目类型一样的几道题：</label>
 					<button class="am-btn am-btn-default am-round"
-						style="margin-left:20%;height:35px;margin-top: 5px;background-color: #F21B11;color:white;padding-top: 8px">
+						style="margin-left: 20%; height: 35px; margin-top: 5px; background-color: #F21B11; color: white; padding-top: 8px">
 						换一批</button>
 				</div>
 			</div>
-			<div style="margin-top: 60px" id="replaceQuestion">
-				
-			</div>
+			<div style="margin-top: 60px" id="replaceQuestion"></div>
 		</div>
 	</div>
 

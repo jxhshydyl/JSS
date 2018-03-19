@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -63,8 +64,7 @@ public class TeacherAction {
 		}
 		Map<String, String> map = new HashMap<String,String>();
 		map.put("hidden", hidden);
-		JSONArray json = new JSONArray();
-		json.add(map);
+		JSONObject json =JSONObject.fromObject(map);
 		hidden = json.toString();
 		return "login";
 	}

@@ -5,6 +5,7 @@ import java.util.List;
 import com.jss.teacher.dao.CourseDao;
 import com.jss.teacher.dao.QuestionDao;
 import com.jss.teacher.pojo.AddQuestionPojo;
+import com.jss.teacher.pojo.CodePojo;
 import com.jss.teacher.pojo.QuestionPojo;
 import com.jss.teacher.util.ManageOptioin;
 import com.jss.teacher.util.SaveCondition;
@@ -106,7 +107,18 @@ public class QuestionService {
 	}
 	public int queryQuestionCount(String type, String cno, String chapter) {
 		QuestionDao dao=new QuestionDao();
-		int num=dao.queryQuestionCount(type,cno,chapter);
+		int num=0;
+		if("编程题".equals(type)) {
+			num=dao.queryCodeQuestionCount(type,cno,chapter);
+		}else {
+			num=dao.queryQuestionCount(type,cno,chapter);
+		}
+		
 		return num;
+	}
+	public int addCodeQuestion(CodePojo que) {
+		QuestionDao dao=new QuestionDao();
+		dao.addCodeQuestion(que);
+		return 0;
 	}
 }

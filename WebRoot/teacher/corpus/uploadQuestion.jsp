@@ -48,13 +48,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="you">
 								<div class="am-btn-group doc-js-btn-1" data-am-button>
 								<label class="am-btn am-btn-primary"> <input type="radio"
-									name="options" value="Txt" id="option1"> Txt
+									name="format_type" value="Txt" id="option1"> Txt
 								</label> <label class="am-btn am-btn-primary"> <input
-									type="radio" name="options" value="Word" id="option2">
+									type="radio" name="format_type" value="Word" id="option2">
 									Word
 								</label> <label class="am-btn am-btn-primary"> <input
-									type="radio" name="options" value="Excel" id="option3">
+									type="radio" name="format_type" value="Excel" id="option3">
 									Excel
+									</label>
 								</div>
 								<div class="zuo">
 									<a href="Download-downloadTemplate.action">下载模板</a>
@@ -62,8 +63,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 						</div>
 						<div class="am-form-group am-cf">
-							<div class="zuo"></div>
 							<div class="you">
+								<div class="am-btn-group doc-js-btn-1" data-am-button>
+									<label class="am-btn am-btn-primary"> 
+										<input type="radio" name="question_type" value="code" id="option1"> 编程题型
+									</label> 
+									<label class="am-btn am-btn-primary"> 
+										<input type="radio" name="question_type" value="noCode" id="option2"> 其他题型
+									</label> 
+								</div>
+								<div class="zuo">
+									<a>导入题型</a>
+							    </div>
 							</div>
 						</div>
 						<div class="am-form-group am-cf">

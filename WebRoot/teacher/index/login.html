@@ -32,7 +32,7 @@
 								<label for="check"><span class="icon"></span> 记住密码</label>
 							</div>
 							<div class="group">
-								<input type="button" class="button" value="登录" onClick="loginUser()">
+								<input type="button" style="cursor: pointer;" class="button" value="登录" onClick="loginUser()">
 							</div>
 							<div class="hr"></div>
 							<div class="foot-lnk">
@@ -71,6 +71,7 @@
 function loginUser(){
 	  var logname=document.getElementById("logname").value;
 	  var logpass=document.getElementById("logpass").value;
+	  console.log("denglu");
 	  $.ajax({
 			type : "POST",
 			url : "Teacher-login.action",
@@ -79,7 +80,8 @@ function loginUser(){
 			success : function(data) {
 				console.log(data)
 				var newdata = JSON.parse(data);
-				var str1 = newdata[0].hidden;
+				console.log(newdata.hidden);
+				var str1 = newdata.hidden;
 				if (str1 === "false") {
 					alert("用户名或密码错误！");
 				}else{

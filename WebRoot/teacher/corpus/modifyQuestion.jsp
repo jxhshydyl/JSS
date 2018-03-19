@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 						<div class="am-form-group am-cf">
 							<div class="zuo">所属章节：</div>
-							<div class="you">
+							<div class="you" style="width:400px;">
 								<input type="text" class="am-input-sm" id="doc-ipt-email-1" name="qp.Qchapter"
 									placeholder="请输入章节（如：第一章）" required>
 							</div>

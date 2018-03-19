@@ -18,7 +18,7 @@ public class ClassDao {
 	public List<ClassPojo> queryAllClass(String tno,int pageNow,int pageSize){
 		DBUtil.openConn();
 		try{
-			String sql = "select * from Class where Cno in (select DISTINCT(Cno) from Tclass where Tno=?) limit ?,?";
+			String sql = "select * from class where Cno in (select DISTINCT(Cno) from Tclass where Tno=?) limit ?,?";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
 			DBUtil.pstat.setString(1, tno);
 			DBUtil.pstat.setInt(2, pageNow);
@@ -55,7 +55,7 @@ public class ClassDao {
 		DBUtil.openConn();
 		String sql=null;
 		try {
-			sql = "select * from Class where (Cno in (select DISTINCT(Cno) from Tclass where Tno=? )) and (Major=? or Cno=? or Ctime_start=?) limit ?,?";
+			sql = "select * from class where (Cno in (select DISTINCT(Cno) from Tclass where Tno=? )) and (Major=? or Cno=? or Ctime_start=?) limit ?,?";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
 			DBUtil.pstat.setString(1, tno);
 			DBUtil.pstat.setString(2, cc.getMajor());
@@ -94,7 +94,7 @@ public class ClassDao {
 	public List<ClassPojo> queryClass(String tno,String keyword,int pageNow,int pageSize) {
 		DBUtil.openConn();
 		try {
-			String sql = "select * from Class where Cno LIKE ? or Cname like ?"
+			String sql = "select * from class where Cno LIKE ? or Cname like ?"
 					+ "or Academy LIKE ? or Major LIKE ? or Ctime_start LIKE ?"
 					+ "or Ctime_end LIKE ? and Cno in (select DISTINCT(Cno) from Tclass where Tno=?) limit ?,?";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
@@ -135,7 +135,7 @@ public class ClassDao {
 	public int queryAllCount(String tno){
 		DBUtil.openConn();
 		try {
-			String sql = "select count(*) as num from Class where Cno in (select DISTINCT(Cno) from Tclass where Tno=?)";
+			String sql = "select count(*) as num from class where Cno in (select DISTINCT(Cno) from Tclass where Tno=?)";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
 			DBUtil.pstat.setString(1, tno);
 			DBUtil.rs = DBUtil.pstat.executeQuery();
@@ -160,7 +160,7 @@ public class ClassDao {
 		DBUtil.openConn();
 		String sql=null;
 		try {
-			sql = "select count(*) as num from Class where (Major=? or Cno=? or Ctime_start=?) and Cno in (select DISTINCT(Cno) from Tclass where Tno=?)";
+			sql = "select count(*) as num from class where (Major=? or Cno=? or Ctime_start=?) and Cno in (select DISTINCT(Cno) from Tclass where Tno=?)";
 			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
 			DBUtil.pstat.setString(1, cc.getMajor());
 			DBUtil.pstat.setString(2, cc.getCno());

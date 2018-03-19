@@ -19,7 +19,7 @@ public class TaskService {
 	 * @param path  作业附件保存路径（若无附件为空）
 	 */
 	public void arrangeTask(TaskPojo tp,String path,AutoMakePaperPara ampp) {
-		String[] str={"单选题","多选题","填空题","判断题","简答题","代码题"};
+		String[] str={"单选题","多选题","填空题","判断题","简答题","编程题"};
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String time=dateFormat.format(new Date());//得到安排作业的时间
 		tp.setSubtime(time);
@@ -56,7 +56,11 @@ public class TaskService {
 			if(Tid!=0){//确保上行代码出现异常，而数据不出错
 				for(int i=0;i<counts.length;i++){
 					if(types[i].trim().equals("5")){//随机抽取代码题
-						
+						List<QuestionPojo> list = dao.autoMakePaperIncludeCode(str[Integer.parseInt(types[i].trim())],Integer.parseInt(counts[i].trim()),tp.getCno(),tp.getTchapter());
+						for(int j=0;j<list.size();j++){
+							//根据作业的Tid保存随机抽取的题目信息
+							dao1.addPaper(list.get(j),Float.parseFloat(scores[i].trim()),Tid);
+						}
 					}else{//随机抽取选择，填空，判断，简答等题目
 						//根据类型随机抽取题目
 						List<QuestionPojo> list = dao.autoMakePaper(str[Integer.parseInt(types[i].trim())],Integer.parseInt(counts[i].trim()),tp.getCno(),tp.getTchapter());

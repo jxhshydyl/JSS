@@ -3,6 +3,7 @@ package com.jss.teacher.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jss.teacher.pojo.CodePojo;
 import com.jss.teacher.pojo.QuestionPojo;
 import com.jss.teacher.util.DBUtil;
 
@@ -295,6 +296,52 @@ public class QuestionDao {
 			DBUtil.pstat.setString(1, type);
 			DBUtil.pstat.setString(2, chapter);
 			DBUtil.pstat.setString(3, cno);
+			DBUtil.rs = DBUtil.pstat.executeQuery();
+			int i=0;
+			while (DBUtil.rs.next()) {
+				i=DBUtil.rs.getInt("num");
+			}
+			return i;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		DBUtil.closeConn();
+		return 0;
+	}
+	public int addCodeQuestion(CodePojo que) {
+		DBUtil.openConn();
+		try {
+			String sql = "insert into code(Qname,Qdescribe,Input_describe,Output_descripe,Example_input,Example_output,reference_answer,Limit_time,Limit_memory,Qdegree,Qtype,Qchapter,Qparagraph,Cname) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
+			DBUtil.pstat.setString(1, que.getQname());
+			DBUtil.pstat.setString(2, que.getQdescribe());
+			DBUtil.pstat.setString(3, que.getInputDescribe());
+			DBUtil.pstat.setString(4, que.getOutputDescripe());
+			DBUtil.pstat.setString(5, que.getExampleInput());
+			DBUtil.pstat.setString(6, que.getExampleOutput());
+			DBUtil.pstat.setString(7, que.getReferenceAnswer());
+			DBUtil.pstat.setFloat(8, que.getLimitTime());
+			DBUtil.pstat.setFloat(9, que.getLimitMemory());
+			DBUtil.pstat.setInt(10, que.getQdegree());
+			DBUtil.pstat.setString(11, que.getQtype());
+			DBUtil.pstat.setString(12, que.getQchapter());
+			DBUtil.pstat.setString(13, que.getQparagraph());
+			DBUtil.pstat.setString(14, que.getCname());
+			int num=DBUtil.pstat.executeUpdate();
+			return num;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		DBUtil.closeConn();
+		return 0;
+	}
+	public int queryCodeQuestionCount(String type, String cno, String chapter) {
+		DBUtil.openConn();
+		try {
+			String sql = "select count(*) as num from code where Qchapter=? and Cname=(select Cname from Course where Cno=?)";
+			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
+			DBUtil.pstat.setString(1, chapter);
+			DBUtil.pstat.setString(2, cno);
 			DBUtil.rs = DBUtil.pstat.executeQuery();
 			int i=0;
 			while (DBUtil.rs.next()) {

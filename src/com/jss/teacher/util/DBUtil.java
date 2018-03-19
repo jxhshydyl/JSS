@@ -16,7 +16,7 @@ public class DBUtil {
     //驱动程序名
 	public final static String driver = "com.mysql.jdbc.Driver";
     //URL指向要访问的数据库名1
-    private final static String url = "jdbc:mysql://localhost:3306/jss";
+    private final static String url = "jdbc:mysql://112.74.57.150:3306/jss";
     //MySQL配置时的用户名
     private final static  String user = "root";
     //MySQL配置时的密码

@@ -8,7 +8,7 @@ import com.jss.teacher.util.DBUtil;
 
 public class TaskDao {
 	/**
-	 * 自动组卷
+	 * 自动组卷不含编程题
 	 * @param type
 	 * @param count
 	 * @param cno
@@ -36,6 +36,36 @@ public class TaskDao {
 				question.setQdegree(DBUtil.rs.getInt("Qdegree"));
 				question.setCname(DBUtil.rs.getString("Cname"));
 				question.setQchapter(DBUtil.rs.getString("Qchapter"));
+				list.add(question);
+			}
+			return list;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		DBUtil.closeConn();
+		return null;
+	}
+	/**
+	 * 自动组卷抽取编程题
+	 * @param type 类型
+	 * @param count 数量
+	 * @param cno 课程号
+	 * @param tchapter 章节
+	 * @return
+	 */
+	public List<QuestionPojo> autoMakePaperIncludeCode(String type, int count, String cno, String tchapter) {
+		DBUtil.openConn();
+		try {
+			String sql = "SELECT * FROM code where Qchapter=? and Cname=(select Cname from Course where Cno=?)  ORDER BY  RAND() LIMIT ?";
+			DBUtil.pstat = DBUtil.conn.prepareStatement(sql);
+			DBUtil.pstat.setString(1, tchapter);
+			DBUtil.pstat.setString(2, cno);
+			DBUtil.pstat.setInt(3, count);
+			DBUtil.rs=DBUtil.pstat.executeQuery();
+			List<QuestionPojo> list=new ArrayList<QuestionPojo>();
+			while(DBUtil.rs.next()){
+				QuestionPojo question=new QuestionPojo();
+				question.setQid(DBUtil.rs.getInt("Qid"));
 				list.add(question);
 			}
 			return list;
